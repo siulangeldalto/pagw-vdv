@@ -1,0 +1,175 @@
+header {
+  background: rgba(255, 255, 255, 0.986);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center; /* Centra el contenido del header */
+  padding: 10px 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+header img {
+  height: 50px; /* Ajusta el tamaño según tu imagen */
+}
+nav ul {
+  list-style: none; /* Activa los puntos */
+  display: flex; /* Acomoda los elementos en línea */
+  padding: 0;
+  margin: 0;
+  gap: 20px; /* Espacio entre los elementos */
+  align-items: center; /* Asegura que los elementos estén alineados verticalmente */
+}
+
+nav ul li {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #4f4747;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #fb5d1f; /* Cambia solo el color de la letra al hacer hover */
+}
+
+/* Estilos generales para la sección */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor de las imágenes del carrusel */
+.slides-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* Configuración de cada slide */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+/* Estilo para el texto dentro de cada slide */
+p {
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding: 0 20px; /* Puedes ajustar el padding si necesitas más espacio en los laterales */
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Capa de degradado sobre las imágenes */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+  z-index: 1;
+}
+
+/* Texto fijo sobre el carrusel */
+.content {
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1.2rem;
+}
+/* Estilos para los botones de navegación (prev y next) */
+
+button:hover {
+  color: #fb5d1f; /* Cambia el color al pasar el ratón */
+}
+
+.prev {
+  left: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 3;
+}
+
+.next {
+  right: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 3;
+}
+
+/* Estilos para los botones de los números de imagen */
+.image-navigation {
+  position: absolute;
+  bottom: 20px; /* Ajusta la posición hacia abajo */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px; /* Espacio entre los números */
+  z-index: 1;
+}
+
+.image-number {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 18px; /* Tamaño de los números */
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del botón */
+  z-index: 2;
+}
+
+.image-number:hover {
+  background-color: #db825f; /* Cambia el color al pasar el ratón */
+  transform: scale(1.2); /* Hace el número un poco más grande al hacer hover */
+}
+
+.image-number.active {
+  background-color: #fb5d1f; /* Resalta el número activo con un fondo */
+  color: #000; /* Cambia el color del texto */
+  transform: scale(1.2); /* Resalta el número activo con un ligero aumento */
+}
