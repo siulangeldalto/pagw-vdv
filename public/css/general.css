@@ -1,3 +1,12 @@
+/* Estilos generales */
+body {
+  font-family: 'Kanit', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos para el header */
 header {
   background: rgba(255, 255, 255, 0.986);
   width: 100%;
@@ -6,25 +15,34 @@ header {
   left: 0;
   z-index: 100;
   display: flex;
-  justify-content: center; /* Centra el contenido del header */
-  padding: 10px 0;
+  align-items: center;
+  padding: 10px 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-}
+/* Logo alineado a la izquierda */
 header img {
-  height: 50px; /* Ajusta el tamaño según tu imagen */
+  height: 50px;
+  margin-right: auto; /* Empuja el logo a la izquierda */
 }
+
+/* Contenedor del nav para centrarlo */
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Centra el contenido del nav */
+}
+
 nav ul {
-  list-style: none; /* Activa los puntos */
-  display: flex; /* Acomoda los elementos en línea */
+  list-style: none;
+  display: flex;
   padding: 0;
   margin: 0;
-  gap: 20px; /* Espacio entre los elementos */
-  align-items: center; /* Asegura que los elementos estén alineados verticalmente */
+  gap: 20px;
+  align-items: center;
 }
 
 nav ul li {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
 }
 
@@ -35,10 +53,14 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #fb5d1f; /* Cambia solo el color de la letra al hacer hover */
+  color: #fb5d1f;
+}
+nav ul li a.active {
+  color: #fb5d1f; /* Naranja */
+  font-weight: semibold;
 }
 
-/* Estilos generales para la sección */
+/* Sección del hero (carrusel) */
 .hero {
   position: relative;
   width: 100%;
@@ -49,14 +71,12 @@ nav ul li a:hover {
   justify-content: center;
 }
 
-/* Contenedor de las imágenes del carrusel */
 .slides-container {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-/* Configuración de cada slide */
 .slide {
   position: absolute;
   width: 100%;
@@ -66,17 +86,12 @@ nav ul li a:hover {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
-/* Estilo para el texto dentro de cada slide */
-p {
-  text-align: left; /* Alinea el texto a la izquierda */
-  padding: 0 20px; /* Puedes ajustar el padding si necesitas más espacio en los laterales */
-}
 
 .slide.active {
   opacity: 1;
 }
 
-/* Capa de degradado sobre las imágenes */
+/* Capa de degradado */
 .overlay {
   position: absolute;
   width: 100%;
@@ -85,62 +100,46 @@ p {
   z-index: 1;
 }
 
-/* Texto fijo sobre el carrusel */
+/* Texto sobre el carrusel */
 .content {
   position: absolute;
   text-align: center;
-  color: #fff;
   z-index: 2;
 }
 
-.content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.content p {
-  font-size: 1.2rem;
-}
-/* Estilos para los botones de navegación (prev y next) */
-
 button:hover {
-  color: #fb5d1f; /* Cambia el color al pasar el ratón */
+  color: #fb5d1f;
+}
+
+/* Botones del carrusel */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 3;
 }
 
 .prev {
   left: 10px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 24px;
-  z-index: 3;
 }
 
 .next {
   right: 10px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 24px;
-  z-index: 3;
 }
 
-/* Estilos para los botones de los números de imagen */
+/* Indicadores de imágenes */
 .image-navigation {
   position: absolute;
-  bottom: 20px; /* Ajusta la posición hacia abajo */
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 10px; /* Espacio entre los números */
+  gap: 10px;
   z-index: 1;
 }
 
@@ -156,20 +155,237 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  font-size: 18px; /* Tamaño de los números */
+  font-size: 18px;
   padding: 0;
   text-align: center;
-  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del botón */
+  box-sizing: border-box;
   z-index: 2;
 }
 
 .image-number:hover {
-  background-color: #db825f; /* Cambia el color al pasar el ratón */
-  transform: scale(1.2); /* Hace el número un poco más grande al hacer hover */
+  background-color: #db825f;
+  transform: scale(1.2);
 }
 
 .image-number.active {
-  background-color: #fb5d1f; /* Resalta el número activo con un fondo */
-  color: #000; /* Cambia el color del texto */
-  transform: scale(1.2); /* Resalta el número activo con un ligero aumento */
+  background-color: #fb5d1f;
+  color: #000;
+  transform: scale(1.2);
+}
+
+/* Títulos */
+h2 {
+  color: #fb5d1f;
+}
+
+/* Secciones de contenido */
+.content2, .contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+
+/* Justificación de los párrafos */
+p {
+  text-align: justify;
+  line-height: 1.6;
+  padding: 0 20px;
+  font-size: 1.2rem;
+}
+
+/* MEDIA QUERIES PARA HACERLO RESPONSIVO */
+
+/* Para pantallas medianas (tabletas) */
+@media screen and (max-width: 768px) {
+  header {
+    justify-content: space-between;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+
+  nav ul li {
+    font-size: 18px;
+  }
+
+  .hero {
+    height: 60vh;
+  }
+
+  .slides-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide {
+    background-position: center;
+  }
+
+  .prev, .next {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .image-number {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+
+  /* Contenido en columna en tabletas */
+  .content2, .contenido {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .content2 img, .contenido img {
+    max-width: 80%;
+  }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media screen and (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  header img {
+    height: 40px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  nav ul li {
+    font-size: 16px;
+  }
+
+  .hero {
+    height: 50vh;
+  }
+
+  .prev, .next {
+    font-size: 18px;
+    padding: 6px;
+  }
+
+  .image-number {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+  }
+
+  /* Contenido en columna en móviles */
+  .content2, .contenido {
+    flex-wrap: nowrap; /* Se mantiene en una línea */
+    justify-content: center;
+  }
+
+  .content2 img, .contenido img {
+    max-width: 50%; /* Ajusta las imágenes al 50% del ancho */
+    display: flex;
+  }
+
+}
+
+/* FOOTER */
+footer {
+  background-color: #232323;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contenedor principal del footer */
+.footer-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* Menú de navegación en el centro */
+.footer-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer-nav ul li a:hover {
+  color: #fb5d1f;
+}
+
+/* Información de contacto en la parte inferior */
+.footer-contact {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #4f4747;
+}
+
+.footer-contact p:hover{
+  color: #fb5d1f;
+}
+
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+
+/* Para pantallas medianas (tabletas) */
+@media screen and (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .footer-nav ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .footer-logo img {
+      height: 50px;
+      margin-bottom: 10px;
+  }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media screen and (max-width: 480px) {
+  .footer-nav ul {
+      flex-direction: column;
+      gap: 8px;
+  }
+
+  .footer-contact {
+      font-size: 14px;
+  }
 }
